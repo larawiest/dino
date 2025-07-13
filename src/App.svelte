@@ -87,13 +87,16 @@
     <option value="crown">crown</option>
   </select>
 
-  <select bind:value={tat}>
+  <select bind:value={tat} on:change={tatchange}>
     <option value="no_tat">no tatto</option>
     <option value="ts">ts logo</option>
     <option value="pq">pq-Formel</option>
   </select>
 
 </div>
+
+{tat}
+{pq}
 
 <style>
   .image-container {
