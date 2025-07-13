@@ -23,6 +23,8 @@
     }
   }
 
+  $: tatchange();
+
   function tatchange() {
     tslogo = false
     pq = false
@@ -85,7 +87,7 @@
     <option value="crown">crown</option>
   </select>
 
-  <select bind:value={tat} on:change={tatchange}>
+  <select bind:value={tat}>
     <option value="no_tat">no tatto</option>
     <option value="ts">ts logo</option>
     <option value="pq">pq-Formel</option>
