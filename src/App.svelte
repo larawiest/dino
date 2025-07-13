@@ -24,24 +24,24 @@
 </script>
 
 <div class="image-container">
-  <img src="/public/img/deno_blanc.png" alt="dino" class="layer" />
+  <img src="/img/deno_blanc.png" alt="dino" class="layer" />
   {#if crab}
-    <img src="/public/img/crab.png" alt="crab" class="layer" />
+    <img src="/img/crab.png" alt="crab" class="layer" />
   {/if}
   {#if tophat}
-    <img src="/public/img/top_hat.png" alt="tophat" class="layer" />
+    <img src="/img/top_hat.png" alt="tophat" class="layer" />
   {/if}
   {#if tslogo}
-    <img src="/public/img/ts_logo_cut.png" alt="ts_logo" class="layer" />
+    <img src="/img/ts_logo_cut.png" alt="ts_logo" class="layer" />
   {/if}
   {#if crown}
-    <img src="/public/img/crown.png" alt="crown" class="layer" />
+    <img src="/img/crown.png" alt="crown" class="layer" />
   {/if}
   {#if skate}
-    <img src="/public/img/skate.png" alt="skate" class="layer" />
+    <img src="/img/skate.png" alt="skate" class="layer" />
   {/if}
   {#if noe}
-    <img src="/public/img/noe.png" alt="noe" class="layer" />
+    <img src="/img/noe.png" alt="noe" class="layer" />
   {/if}
 </div>
 
