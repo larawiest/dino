@@ -8,6 +8,7 @@
   let skate = false
   let noe = false
   let pq = false
+  let muetze = false
 
   let hat = "no_hat"
   let tat = "no_tat"
@@ -15,11 +16,15 @@
   function hatchange() {
     tophat = false
     crown = false
+    muetze = false
     if (hat === "top_hat") {
       tophat = true
     }
     if (hat === "crown") {
       crown = true
+    }
+    if (hat === "muetze") {
+      muetze = true
     }
   }
 
@@ -61,6 +66,9 @@
   {#if pq}
     <img src="/img/pq_formel.png" alt="pq" class="layer" />
   {/if}
+  {#if muetze}
+    <img src="/img/muetze.png" alt="muetze" class="layer" />
+  {/if}
 </div>
 
 <div class="controls">
@@ -85,6 +93,7 @@
     <option value="no_hat">no hat</option>
     <option value="top_hat">top hat</option>
     <option value="crown">crown</option>
+    <option value="muetze">mütze</option>
   </select>
 
   <select bind:value={tat} on:change={tatchange}>
