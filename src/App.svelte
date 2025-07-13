@@ -7,8 +7,10 @@
   let crown = false
   let skate = false
   let noe = false
+  let pq = false
 
   let hat = "no_hat"
+  let tat = "no_tat"
 
   function hatchange() {
     tophat = false
@@ -18,6 +20,17 @@
     }
     if (hat === "crown") {
       crown = true
+    }
+  }
+
+  function tatchange() {
+    tslogo = false
+    pq = false
+    if (tat === "ts") {
+      tslogo = true
+    }
+    if (tat === "pq") {
+      pq = true
     }
   }
 
@@ -43,6 +56,9 @@
   {#if noe}
     <img src="/img/noe.png" alt="noe" class="layer" />
   {/if}
+  {#if pq}
+    <img src="/img/pq_formel.png" alt="pq" class="layer" />
+  {/if}
 </div>
 
 <div class="controls">
@@ -53,16 +69,12 @@
         crab
     </label>
     <label>
-      <input type="checkbox" bind:checked={tslogo} />
-        tslogo
-    </label>
-    <label>
       <input type="checkbox" bind:checked={skate} />
         skateboard
     </label>
     <label>
       <input type="checkbox" bind:checked={noe} />
-        nö-tattoe
+        nö-tatto
     </label>
 
   </div>
@@ -71,6 +83,12 @@
     <option value="no_hat">no hat</option>
     <option value="top_hat">top hat</option>
     <option value="crown">crown</option>
+  </select>
+
+  <select bind:value={tat} on:change={hatchange}>
+    <option value="no_tat">no tatto</option>
+    <option value="ts">ts logo</option>
+    <option value="pq">pq-Formel</option>
   </select>
 
 </div>
