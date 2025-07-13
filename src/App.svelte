@@ -95,8 +95,6 @@
 
 </div>
 
-{tat}
-{pq}
 
 <style>
   .image-container {
