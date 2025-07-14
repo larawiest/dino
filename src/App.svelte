@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { hasContext } from "svelte"
+  import html2canvas from 'html2canvas';
 
   let crab = $state(false)
   let tophat = $state(false)
@@ -62,11 +63,26 @@
     }
   })
 
+  let containerRef: HTMLDivElement;
+
+  async function downloadImage() {
+    const canvas = await html2canvas(containerRef, {
+      backgroundColor: null
+    });
+
+    const dataUrl = canvas.toDataURL("image/png");
+
+    const link = document.createElement("a");
+    link.href = dataUrl;
+    link.download = "my_character.png";
+    link.click();
+  }
+
 </script>
 
 
 <div class="layout">
-  <div class="bildcontainer">
+  <div bind:this={containerRef} class="bildcontainer">
     <img src="/img/deno_blanc.png" alt="dino" class="layer" />
     <!--hats-->
     {#if tophat}
@@ -150,7 +166,9 @@
     </select>
     </div>
 
-
+    <button onclick={downloadImage}>
+      download
+    </button>
 
 </div>
 
@@ -230,5 +248,11 @@
   label {
     cursor: pointer;
     font-size: 1rem;
+  }
+
+  button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
   }
 </style>
