@@ -14,7 +14,7 @@
   let hat = $state("no_hat")
   let tat = $state("no_tat")
 
-  let colors = $state(['#01c2ff','#ff4601','#1bdc01'])
+  let colors = $state(['#ff4601','#ffa61d','#fff81d','#1bdc01','#01c2ff'])
   let selected = $state('#01c2ff')
   let color = $state('blue')
 
@@ -53,7 +53,11 @@
       color = "blue";
     } else if (selected === '#ff4601') {
       color = 'red';
-    } else {
+    } else if (selected === '#ffa61d') {
+      color = 'orange';
+    } else if (selected === '#fff81d') {
+      color = 'yellow';
+    } else if (selected === '#1bdc01') {
       color = 'green';
     }
   })
@@ -61,41 +65,47 @@
 </script>
 
 
-
-
-
-
-
 <div class="layout">
   <div class="bildcontainer">
     <img src="/img/deno_blanc.png" alt="dino" class="layer" />
-    {#if crab}
-      <img src="/img/crab.png" alt="crab" class="layer" />
-    {/if}
+    <!--hats-->
     {#if tophat}
       <img src="/img/top_hat/{color}.png" alt="tophat" class="layer" />
     {/if}
-    {#if tslogo}
-      <img src="/img/ts_logo_cut.png" alt="ts_logo" class="layer" />
-    {/if}
+
     {#if crown}
       <img src="/img/crown.png" alt="crown" class="layer" />
     {/if}
-    {#if skate}
-      <img src="/img/skate.png" alt="skate" class="layer" />
-    {/if}
-    {#if noe}
-      <img src="/img/noe.png" alt="noe" class="layer" />
-    {/if}
-    {#if pq}
-      <img src="/img/pq_formel.png" alt="pq" class="layer" />
-    {/if}
+
     {#if muetze}
       <img src="/img/muetze/{color}.png" alt="muetze" class="layer" />
     {/if}
+
     {#if party}
       <img src="/img/party/{color}.png" alt="party" class="layer" />
     {/if}
+
+
+    {#if crab}
+      <img src="/img/crab.png" alt="crab" class="layer" />
+    {/if}
+
+    {#if tslogo}
+      <img src="/img/ts_logo_cut.png" alt="ts_logo" class="layer" />
+    {/if}
+
+    {#if skate}
+      <img src="/img/skate.png" alt="skate" class="layer" />
+    {/if}
+
+    {#if noe}
+      <img src="/img/noe.png" alt="noe" class="layer" />
+    {/if}
+
+    {#if pq}
+      <img src="/img/pq_formel.png" alt="pq" class="layer" />
+    {/if}
+    
   </div>
 
   <div class="controls">
@@ -198,7 +208,7 @@
 
   .color {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 0.5rem;
     max-width: 170px;
   }
