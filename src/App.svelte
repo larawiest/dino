@@ -9,6 +9,7 @@
   let noe = $state(false)
   let pq = $state(false)
   let muetze = $state(false)
+  let party = $state(false)
 
   let hat = $state("no_hat")
   let tat = $state("no_tat")
@@ -21,6 +22,7 @@
     tophat = false
     crown = false
     muetze = false
+    party = false
     if (hat === "top_hat") {
       tophat = true
     }
@@ -29,6 +31,9 @@
     }
     if (hat === "muetze") {
       muetze = true
+    }
+    if (hat === "party") {
+      party = true
     }
   }
 
@@ -88,6 +93,9 @@
     {#if muetze}
       <img src="/img/muetze/{color}.png" alt="muetze" class="layer" />
     {/if}
+    {#if party}
+      <img src="/img/party/{color}.png" alt="party" class="layer" />
+    {/if}
   </div>
 
   <div class="controls">
@@ -111,6 +119,7 @@
       <option value="top_hat">top hat</option>
       <option value="crown">crown</option>
       <option value="muetze">mütze</option>
+      <option value="party">party hat</option>
     </select>
 
     <div class="color">
