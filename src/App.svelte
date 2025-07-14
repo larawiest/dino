@@ -164,13 +164,17 @@
       <option value="ts">ts logo</option>
       <option value="pq">pq-Formel</option>
     </select>
-    </div>
-
-    <button onclick={downloadImage}>
+    
+    <button onclick={downloadImage} class="download">
       download
     </button>
 
+    </div>
+
+
 </div>
+
+
 
 <style>
   .layout {
@@ -250,9 +254,12 @@
     font-size: 1rem;
   }
 
-  button {
+  .download {
+    position: relative;
     margin-top: 1rem;
     padding: 0.5rem 1rem;
-    font-weight: bold;
+    display: flex;
+    gap: 2rem;
+    width: 100px;
   }
 </style>
