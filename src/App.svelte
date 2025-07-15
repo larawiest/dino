@@ -111,21 +111,6 @@
     {/if}
 
 
-    <!--Oberteil-->
-    {#if crab}
-      <img src="/img/crab.png" alt="crab" class="layer" />
-    {/if}
-
-    {#if pq}
-      <img src="/img/pq_formel.png" alt="pq" class="layer" />
-    {/if}
-
-    {#if shirt}
-      <img src="/img/tshirt.png" alt="shirt" class="layer" />
-    {/if}
-
-
-
     {#if skate}
       <img src="/img/skate.png" alt="skate" class="layer" />
     {/if}
@@ -135,7 +120,19 @@
     {/if}
 
 
-    
+    <!--Oberteil-->
+    {#if pq}
+      <img src="/img/pq_formel.png" alt="pq" class="layer" />
+    {/if}
+
+    {#if shirt}
+      <img src="/img/tshirt.png" alt="shirt" class="layer" />
+    {/if}
+
+    {#if crab}
+      <img src="/img/crab.png" alt="crab" class="layer" />
+    {/if}
+
   </div>
 
   <div class="controls">
