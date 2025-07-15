@@ -11,6 +11,7 @@
   let pq = $state(false)
   let muetze = $state(false)
   let party = $state(false)
+  let shirt = $state(false)
 
   let hat = $state("no_hat")
   let tat = $state("no_tat")
@@ -41,10 +42,14 @@
   function tatchange() {
     tslogo = false
     pq = false
+    shirt = false
     if (tat === "ts") {
       tslogo = true
     }
     if (tat === "pq") {
+      pq = true
+    }
+    if (tat === "shirt") {
       pq = true
     }
   }
@@ -101,14 +106,25 @@
       <img src="/img/party/{color}.png" alt="party" class="layer" />
     {/if}
 
+    {#if tslogo}
+      <img src="/img/ts_logo_cut.png" alt="ts_logo" class="layer" />
+    {/if}
 
+
+    <!--Oberteil-->
     {#if crab}
       <img src="/img/crab.png" alt="crab" class="layer" />
     {/if}
 
-    {#if tslogo}
-      <img src="/img/ts_logo_cut.png" alt="ts_logo" class="layer" />
+    {#if pq}
+      <img src="/img/pq_formel.png" alt="pq" class="layer" />
     {/if}
+
+    {#if pq}
+      <img src="/img/tshirt.png" alt="shirt" class="layer" />
+    {/if}
+
+
 
     {#if skate}
       <img src="/img/skate.png" alt="skate" class="layer" />
@@ -118,9 +134,7 @@
       <img src="/img/noe.png" alt="noe" class="layer" />
     {/if}
 
-    {#if pq}
-      <img src="/img/pq_formel.png" alt="pq" class="layer" />
-    {/if}
+
     
   </div>
 
@@ -163,6 +177,7 @@
       <option value="no_tat">no tatto</option>
       <option value="ts">ts logo</option>
       <option value="pq">pq-Formel</option>
+      <option value="shirt">pq-Formel</option>
     </select>
     
     <button onclick={downloadImage} class="download">
