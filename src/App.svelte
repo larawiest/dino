@@ -12,14 +12,21 @@
   let muetze = $state(false)
   let party = $state(false)
   let shirt = $state(false)
+  let design = $state(false)
   let crabhat = $state(false)
 
   let hat = $state("no_hat")
   let tat = $state("no_tat")
+  let shi = $state("no_shirt")
 
   let colors = $state(['#ff4601','#ffa61d','#fff81d','#1bdc01','#01c2ff'])
   let selected = $state('#01c2ff')
+  let selected2 = $state('#01c2ff')
   let color = $state('blue')
+  let color2 = $state('blue')
+
+  let version = $state('normal')
+  let pink = $state(false)
 
   function hatchange() {
     tophat = false
@@ -43,15 +50,22 @@
   function tatchange() {
     tslogo = false
     pq = false
-    shirt = false
     if (tat === "ts") {
       tslogo = true
     }
     if (tat === "pq") {
       pq = true
     }
-    if (tat === "shirt") {
+  }
+
+  function shirtchange() {
+    design = false
+    shirt = false
+    if (shi === "no_design") {
       shirt = true
+    }
+    if (shi === "design") {
+      design = true
     }
   }
 
@@ -68,6 +82,18 @@
       color = 'green';
     }
 
+    if (selected2 === '#01c2ff') {
+      color2 = "blue";
+    } else if (selected2 === '#ff4601') {
+      color2 = 'red';
+    } else if (selected2 === '#ffa61d') {
+      color2 = 'orange';
+    } else if (selected2 === '#fff81d') {
+      color2 = 'yellow';
+    } else if (selected2 === '#1bdc01') {
+      color2 = 'green';
+    }
+
     if (crabhat === true) {
       crab = true
     }
@@ -75,7 +101,13 @@
     if (!crab) {
       crabhat = false
     }
-    
+
+    if (pink) {
+      version = 'pink'
+    } else {
+      version = 'normal'
+    }
+
   })
 
   let containerRef: HTMLDivElement;
@@ -98,53 +130,57 @@
 
 <div class="layout">
   <div bind:this={containerRef} class="bildcontainer">
-    <img src="/img/deno_blanc.png" alt="dino" class="layer" />
+    <img src="/img/{version}/deno_blanc.png" alt="dino" class="layer" />
     <!--hats-->
     {#if tophat}
-      <img src="/img/top_hat/{color}.png" alt="tophat" class="layer" />
+      <img src="/img/{version}/top_hat/{color}.png" alt="tophat" class="layer" />
     {/if}
 
     {#if crown}
-      <img src="/img/crown.png" alt="crown" class="layer" />
+      <img src="/img/{version}/crown.png" alt="crown" class="layer" />
     {/if}
 
     {#if muetze}
-      <img src="/img/muetze/{color}.png" alt="muetze" class="layer" />
+      <img src="/img/{version}/muetze/{color}.png" alt="muetze" class="layer" />
     {/if}
 
     {#if party}
-      <img src="/img/party/{color}.png" alt="party" class="layer" />
+      <img src="/img/{version}/party/{color}.png" alt="party" class="layer" />
     {/if}
 
     {#if tslogo}
-      <img src="/img/ts_logo_cut.png" alt="ts_logo" class="layer" />
+      <img src="/img/{version}/ts_logo_cut.png" alt="ts_logo" class="layer" />
     {/if}
 
 
     {#if skate}
-      <img src="/img/skate.png" alt="skate" class="layer" />
+      <img src="/img/{version}/skate.png" alt="skate" class="layer" />
     {/if}
 
     {#if noe}
-      <img src="/img/noe.png" alt="noe" class="layer" />
+      <img src="/img/{version}/noe.png" alt="noe" class="layer" />
     {/if}
 
     {#if crabhat}
-      <img src="/img/crabhat/{color}.png" alt="noe" class="layer" />
+      <img src="/img/{version}/crabhat/{color}.png" alt="noe" class="layer" />
     {/if}
 
 
     <!--Oberteil-->
     {#if pq}
-      <img src="/img/pq_formel.png" alt="pq" class="layer" />
+      <img src="/img/{version}/pq_formel.png" alt="pq" class="layer" />
     {/if}
 
     {#if shirt}
-      <img src="/img/tshirt.png" alt="shirt" class="layer" />
+      <img src="/img/{version}/shirt/{color2}.png" alt="shirt" class="layer" />
+    {/if}
+
+    {#if design}
+      <img src="/img/{version}/design/{color2}.png" alt="shirt" class="layer" />
     {/if}
 
     {#if crab}
-      <img src="/img/crab.png" alt="crab" class="layer" />
+      <img src="/img/{version}/crab.png" alt="crab" class="layer" />
     {/if}
 
   </div>
@@ -188,11 +224,27 @@
 	    {/each}
     </div>
 
+    <select bind:value={shi} onchange={shirtchange}>
+      <option value="no_shirt">no shirt</option>
+      <option value="no_design">normal</option>
+      <option value="design">design</option>
+    </select>
+
+    <div class="color">
+	    {#each colors as color, i}
+		    <button
+			    style="background: {color}"
+			    aria-label={color}
+			    aria-current={selected2 === color}
+			    onclick={() => selected2 = color}
+		    ></button>
+	    {/each}
+    </div>
+
     <select bind:value={tat} onchange={tatchange}>
       <option value="no_tat">no tatto</option>
       <option value="ts">ts logo</option>
       <option value="pq">pq-Formel</option>
-      <option value="shirt">rotes shirt</option>
     </select>
     
     <button onclick={downloadImage} class="download">
@@ -200,6 +252,16 @@
     </button>
 
     </div>
+
+    <!--
+    <div class:pink={pink}>
+      <label class="switch">
+        <input type="checkbox" bind:checked={pink} />
+        <span class="slider"></span>
+      </label>
+
+      <p>Modus: {pink ? "Pink" : "Normal"}</p>
+    </div> -->
 
 
 </div>
