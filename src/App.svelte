@@ -177,7 +177,7 @@
       <option value="no_tat">no tatto</option>
       <option value="ts">ts logo</option>
       <option value="pq">pq-Formel</option>
-      <option value="shirt">pq-Formel</option>
+      <option value="shirt">rotes shirt</option>
     </select>
     
     <button onclick={downloadImage} class="download">
