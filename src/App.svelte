@@ -50,7 +50,7 @@
       pq = true
     }
     if (tat === "shirt") {
-      pq = true
+      shirt = true
     }
   }
 
@@ -120,7 +120,7 @@
       <img src="/img/pq_formel.png" alt="pq" class="layer" />
     {/if}
 
-    {#if pq}
+    {#if shirt}
       <img src="/img/tshirt.png" alt="shirt" class="layer" />
     {/if}
 
