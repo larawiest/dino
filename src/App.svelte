@@ -12,6 +12,7 @@
   let muetze = $state(false)
   let party = $state(false)
   let shirt = $state(false)
+  let crabhat = $state(false)
 
   let hat = $state("no_hat")
   let tat = $state("no_tat")
@@ -66,6 +67,15 @@
     } else if (selected === '#1bdc01') {
       color = 'green';
     }
+
+    if (crabhat === true) {
+      crab = true
+    }
+
+    if (!crab) {
+      crabhat = false
+    }
+    
   })
 
   let containerRef: HTMLDivElement;
@@ -119,6 +129,10 @@
       <img src="/img/noe.png" alt="noe" class="layer" />
     {/if}
 
+    {#if crabhat}
+      <img src="/img/crabhat/{color}.png" alt="noe" class="layer" />
+    {/if}
+
 
     <!--Oberteil-->
     {#if pq}
@@ -140,6 +154,10 @@
       <label>
         <input type="checkbox" bind:checked={crab} />
           crab
+      </label>
+      <label>
+        <input type="checkbox" bind:checked={crabhat} />
+          crab hat
       </label>
       <label>
         <input type="checkbox" bind:checked={skate} />
