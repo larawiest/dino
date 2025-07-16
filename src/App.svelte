@@ -14,6 +14,7 @@
   let shirt = $state(false)
   let design = $state(false)
   let crabhat = $state(false)
+  let kit = $state(false)
 
   let hat = $state("no_hat")
   let tat = $state("no_tat")
@@ -183,6 +184,10 @@
       <img src="/img/{version}/crab.png" alt="crab" class="layer" />
     {/if}
 
+    {#if kit}
+      <img src="/img/{version}/kit.png" alt="kit" class="layer" />
+    {/if}
+
   </div>
 
   <div class="controls">
@@ -201,7 +206,11 @@
       </label>
       <label>
         <input type="checkbox" bind:checked={noe} />
-          nö-tatto
+          nö-tattoo
+      </label>
+      <label>
+        <input type="checkbox" bind:checked={kit} />
+          KIT-pass
       </label>
     </div>
 
@@ -242,7 +251,7 @@
     </div>
 
     <select bind:value={tat} onchange={tatchange}>
-      <option value="no_tat">no tatto</option>
+      <option value="no_tat">no tattoo</option>
       <option value="ts">ts logo</option>
       <option value="pq">pq-Formel</option>
     </select>
