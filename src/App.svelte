@@ -304,7 +304,7 @@
     </div>
 
     <button onclick={random}>
-      🔀 Zufällig auslösen
+      random dino
     </button>
 
     <button onclick={downloadImage} class="download">
