@@ -20,6 +20,10 @@
   let tat = $state("no_tat")
   let shi = $state("no_shirt")
 
+  let hats = $state(["no_hat", "top_hat", "crown", "muetze", "party"])
+  let tats = $state(["no_tat", "ts", "pq"])
+  let shis = $state(["no_shirt", "no_design", "design"])
+
   let colors = $state(['#ff4601','#ffa61d','#fff81d','#1bdc01','#01c2ff'])
   let colorsnormal = $state(['#ff4601','#ffa61d','#fff81d','#1bdc01','#01c2ff'])
   let colorsspink = $state(['#ec2a63','#ec149b','#ec14da','#c314ec','#9b3cec'])
@@ -75,6 +79,27 @@
   function versionchange() {
     if (version === 'normal') version = 'pink'
     if (version === 'pink') version = 'normal'
+  }
+
+  function random() {
+    crab = Math.random() < 0.5
+    crabhat = Math.random() < 0.5
+    if (crabhat) crab = true
+    skate = Math.random() < 0.5
+    noe = Math.random() < 0.5
+    kit = Math.random() < 0.5
+
+    hat = hats[Math.floor(Math.random() * hats.length)]
+    hatchange()
+    tat = tats[Math.floor(Math.random() * tats.length)]
+    tatchange()
+    shi = shis[Math.floor(Math.random() * shis.length)]
+    shirtchange()
+
+    selected = colors[Math.floor(Math.random() * colors.length)]
+    selected2 = colors[Math.floor(Math.random() * colors.length)]
+
+
   }
 
   $effect(() => {
@@ -278,6 +303,9 @@
       {version}
     </div>
 
+    <button onclick={random}>
+      🔀 Zufällig auslösen
+    </button>
 
     <button onclick={downloadImage} class="download">
       download
@@ -286,6 +314,8 @@
     </div>
 
 </div>
+
+
 
 
 
