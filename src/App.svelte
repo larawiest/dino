@@ -21,6 +21,8 @@
   let shi = $state("no_shirt")
 
   let colors = $state(['#ff4601','#ffa61d','#fff81d','#1bdc01','#01c2ff'])
+  let colorsnormal = $state(['#ff4601','#ffa61d','#fff81d','#1bdc01','#01c2ff'])
+  let colorsspink = $state(['#ec2a63','#ec149b','#ec14da','#c314ec','#9b3cec'])
   let selected = $state('#01c2ff')
   let selected2 = $state('#01c2ff')
   let color = $state('blue')
@@ -70,28 +72,41 @@
     }
   }
 
+  function versionchange() {
+    if (version === 'normal') version = 'pink'
+    if (version === 'pink') version = 'normal'
+  }
+
   $effect(() => {
-    if (selected === '#01c2ff') {
+
+    if (version === 'normal') {
+      colors = colorsnormal
+    }
+    if (version === 'pink') {
+      colors = colorsspink
+    }
+
+    if (selected === '#01c2ff' || selected === '#9b3cec') {
       color = "blue";
-    } else if (selected === '#ff4601') {
+    } else if (selected === '#ff4601' || selected === '#ec2a63') {
       color = 'red';
-    } else if (selected === '#ffa61d') {
+    } else if (selected === '#ffa61d' || selected === '#ec149b') {
       color = 'orange';
-    } else if (selected === '#fff81d') {
+    } else if (selected === '#fff81d' || selected === '#ec14da') {
       color = 'yellow';
-    } else if (selected === '#1bdc01') {
+    } else if (selected === '#1bdc01' || selected === '#c314ec') {
       color = 'green';
     }
 
-    if (selected2 === '#01c2ff') {
+    if (selected2 === '#01c2ff' || selected2 === '#9b3cec') {
       color2 = "blue";
-    } else if (selected2 === '#ff4601') {
+    } else if (selected2 === '#ff4601' || selected2 === '#ec2a63') {
       color2 = 'red';
-    } else if (selected2 === '#ffa61d') {
+    } else if (selected2 === '#ffa61d' || selected2 === '#ec149b') {
       color2 = 'orange';
-    } else if (selected2 === '#fff81d') {
+    } else if (selected2 === '#fff81d' || selected2 === '#ec14da') {
       color2 = 'yellow';
-    } else if (selected2 === '#1bdc01') {
+    } else if (selected2 === '#1bdc01' || selected2 === '#c314ec') {
       color2 = 'green';
     }
 
@@ -255,23 +270,20 @@
       <option value="ts">ts logo</option>
       <option value="pq">pq-Formel</option>
     </select>
-    
+
+    <div class:pink={pink}>
+      <label class="switch">
+        <input type="checkbox" bind:checked={pink} />
+      </label>
+      {version}
+    </div>
+
+
     <button onclick={downloadImage} class="download">
       download
     </button>
 
     </div>
-
-    <!--
-    <div class:pink={pink}>
-      <label class="switch">
-        <input type="checkbox" bind:checked={pink} />
-        <span class="slider"></span>
-      </label>
-
-      <p>Modus: {pink ? "Pink" : "Normal"}</p>
-    </div> -->
-
 
 </div>
 
@@ -363,4 +375,6 @@
     gap: 2rem;
     width: 100px;
   }
+
+
 </style>
